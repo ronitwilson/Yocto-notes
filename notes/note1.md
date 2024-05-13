@@ -1,3 +1,4 @@
+# buildhistory 
 **buildhistory class**. 
 This class records information about the contents of all packages built and about the images created by the build system in a Git repository where you can examine them. Build history
 is disabled by default. To enable it, you need to add
@@ -5,3 +6,11 @@ is disabled by default. To enable it, you need to add
 INHERIT += “buildhistory”
 BUILDHISTORY_COMMIT = “1”
 ```
+The files in that directory give you detailed information on what makes up your image:
+### image-info.txt: 
+Overview information about the image in form of the most important variables, such as DISTRO, DISTRO_VERSION, and IMAGE_INSTALL
+### installed-packages.txt:
+A list of the package files installed in the image, including version and target information 
+### installed-package-names.txt: 
+Similar to the previous file but contains only the names of the packages without version and target information files-in-image.txt: A list of the root filesystem with directory names, file
+sizes, file permissions, and file owner Simply searching the file installed-package-names.txt gives you information on whether or not a package has been installed.
